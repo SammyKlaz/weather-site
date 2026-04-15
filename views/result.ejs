@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+
+<div class="container mt-5 text-center">
+  <h1 class="mb-4">Weather Forecast for <%= city %></h1>
+
+  <ul class="list-group mb-4">
+    <% forecast.forEach(f => { %>
+      <li class="list-group-item">
+        <strong><%= f.time %>:</strong> <%= f.description %>
+      </li>
+    <% }) %>
+  </ul>
+
+  <% if (willRain) { %>
+    <h3 style="color: blue;">Yes, it will rain tomorrow 🌧️</h3>
+  <% } else { %>
+    <h3 style="color: blue;">No, it will not rain tomorrow ☀️</h3>
+  <% } %>
+
+  <!-- Back to Home button -->
+  <a href="/" class="btn btn-primary mt-4">Back to Home</a>
+</div>
+
+<%- include("partials/footer") %>
+
+

@@ -1,0 +1,27 @@
+<%- include("partials/header") %>
+
+<% if (error) { %>
+  <h2 style="color: red; text-align: center; margin-top: 2rem;"><%= error %></h2>
+<% } %>
+
+<div class="container text-center mt-5">
+  <h1 class="mb-4">Will It Rain Tomorrow?</h1>
+
+  <!-- Form that posts to /weather -->
+  <form action="/weather" method="POST" class="d-flex justify-content-center">
+    <div class="input-group mb-3" style="max-width: 400px;">
+      <!-- show old input ONLY when there's an error -->
+      <input 
+        type="text" 
+        id="cityInput" 
+        name="city" 
+        value="<%= error ? formData.city : '' %>" 
+        placeholder="Enter city" 
+        class="form-control" 
+        required>
+      <button type="submit" class="btn btn-primary" id="checkBtn">Get Weather</button>
+    </div>
+  </form>
+</div>
+
+<%- include("partials/footer") %>
